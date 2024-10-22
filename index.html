@@ -2,73 +2,136 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4B作业网</title>
-    <script type="text/javascript">
-    	(function(c,l,a,r,i,t,y){
-        	c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        	t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        	y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    	})(window, document, "clarity", "script", "om3m3gjs5i");
-	</script>
+    <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
             font-family: 'SourceHanSansCN';
-            src: url('http://sllz55sb3.hd-bkt.clouddn.com/Source Han Sans & Saira Hybrid-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+            src: url('http://sllz55sb3.hd-bkt.clouddn.com/Source%20Han%20Sans%20&%20Saira%20Hybrid-Regular.ttf') format('truetype');
+            font-display: swap;
         }
-
-        body {
-            font-family: 'SourceHanSansCN', Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+        body, .daily-homework {
+            font-family: 'SourceHanSansCN', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-        p {
-            margin-bottom: 10px;
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .subject {
+            margin-top: 1em;
+            font-size: 1.2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 0.5em 0;
         }
         a {
-            color: #007BFF;
+            color: #007bff;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
-        .homework {
-            margin-bottom: 20px;
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
         }
-        .subject {
-            font-weight: bold;
-            margin-top: 10px;
+        .hosted-by {
+            margin-top: 1em;
+            text-align: center;
+        }
+        .hosted-by a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+        }
+        .hosted-by img {
+            vertical-align: middle;
+            margin-right: 0.5em;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5em;
+            }
         }
     </style>
+    <script>
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments);
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "om3m3gjs5i");
+    </script>
 </head>
 <body>
-    <div class="homework">
+    <header>
+        <h1>4B作业网</h1>
+    </header>
+    <div class="container daily-homework">
         <p>今日作业：（最后更新：10月22日）</p>
-        <p class="subject">C:</p>
-        <ul>
-        	<li>课作L11</li>
-        	<li>yx园地三</li>
-    		<li>TXP40-41</li>
-			<li>书写P40-41</li>
-        </ul>
-        
-        <p class="subject">M:</p>
-        <ul>
-        	<li>书P42-43</li>
-        	<li>口P32</li>
-        </ul>
-        
-        <p class="subject">E:</p>
-        <ul>
-            <li>完成 Vocabulary</li>
-            <li>weather forecast上传钉钉 <a href="http://sllz55sb3.hd-bkt.clouddn.com/IMG_0214.jpeg">点此查看指南</a></li>
-            <li>打卡P41(3/3)</li>
-        </ul>
+        <section>
+            <h3 class="subject">C:</h3>
+            <ul>
+                <li>课作L11</li>
+                <li>yx园地三</li>
+                <li>TXP40-41</li>
+                <li>书写P40-41</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="subject">M:</h3>
+            <ul>
+                <li>书P42-43</li>
+                <li>口P32</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="subject">E:</h3>
+            <ul>
+                <li>完成 Vocabulary</li>
+                <li>weather forecast上传钉钉
+                    <a href="http://sllz55sb3.hd-bkt.clouddn.com/IMG_0214.jpeg" target="_blank">
+                        点此查看指南
+                    </a>
+                </li>
+                <li>打卡P41(3/3)</li>
+            </ul>
+        </section>
     </div>
-        
-    <br><br>
-    
-    <p>Powered by Mugunghwa</p>
+    <footer>
+        <p>Powered by Mugunghwa</p>
+        <div class="hosted-by">
+            <a href="https://pages.github.com/" target="_blank">
+                <img src="https://github.com/fluidicon.png" alt="GitHub Logo" width="20" height="20">
+                Hosted by GitHub Pages
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
