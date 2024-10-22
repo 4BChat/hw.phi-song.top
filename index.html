@@ -10,12 +10,10 @@
             src: url('http://sllz55sb3.hd-bkt.clouddn.com/Source%20Han%20Sans%20&%20Saira%20Hybrid-Regular.ttf') format('truetype');
             font-display: swap;
         }
-        body, h1, p, span, header, footer, li, a {
+        body, .daily-homework, h1 {
             font-family: 'SourceHanSansCN', sans-serif;
             margin: 0;
             padding: 0;
-        }
-        body {
             background-color: #f4f4f4;
             color: #333;
         }
@@ -25,9 +23,12 @@
             text-align: center;
             padding: 1em 0;
         }
+        h1 {
+            color: #4CAF50;
+        }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2em auto;
             padding: 1em;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,6 +41,7 @@
         }
         ul {
             list-style-type: none;
+            padding: 0;
         }
         li {
             margin: 0.5em 0;
@@ -57,18 +59,30 @@
             background-color: #333;
             color: white;
         }
-        .update-time {
+        .hosted-by a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+        }
+        .hosted-by img {
+            vertical-align: middle;
+            margin-right: 0.5em;
+        }
+        .time-container {
             position: absolute;
             top: 1em;
             right: 1em;
-            font-size: 1.2em;
-            color: #555;
+            font-size: 1em;
+        }
+        .update-time {
+            font-family: 'SourceHanSansCN', sans-serif;
+            color: #333;
         }
         @media (max-width: 600px) {
             .container {
                 padding: 0.5em;
             }
-            .update-time {
+            .time-container {
                 position: static;
                 margin-top: 1em;
             }
@@ -78,9 +92,10 @@
 <body>
     <header>
         <h1>4B作业网</h1>
+        <div class="time-container" id="time"></div>
     </header>
     <div class="container daily-homework">
-        <div class="update-time" id="update-time">正在加载...</div>
+        <p>今日作业：（<span class="update-time" id="update-time">正在加载...</span>）</p>
         <section>
             <h3 class="subject">C:</h3>
             <ul>
@@ -117,7 +132,19 @@
         </div>
     </footer>
     <script>
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('zh-CN', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('time').textContent = timeStr;
+        }
         document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 1000);
             fetch('https://api.github.com/repos/4bchat/hw.phi-song.top')
                 .then(response => response.json())
                 .then(data => {
@@ -130,7 +157,7 @@
                         second: '2-digit',
                         hour12: false
                     });
-                    document.getElementById('update-time').textContent = '最后更新时间：' + updateTimeStr;
+                    document.getElementById('update-time').textContent = updateTimeStr;
                 })
                 .catch(error => {
                     console.error('Error fetching repository data:', error);
