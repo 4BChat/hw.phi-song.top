@@ -10,10 +10,8 @@
             src: url('http://sllz55sb3.hd-bkt.clouddn.com/Source%20Han%20Sans%20&%20Saira%20Hybrid-Regular.ttf') format('truetype');
             font-display: swap;
         }
-        body, .daily-homework, h1, p, span, header, footer, li, a {
+        body, h1, p, span, header, footer, li, a {
             font-family: 'SourceHanSansCN', sans-serif;
-        }
-        body {
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -43,7 +41,6 @@
         }
         ul {
             list-style-type: none;
-            padding: 0;
         }
         li {
             margin: 0.5em 0;
@@ -61,22 +58,18 @@
             background-color: #333;
             color: white;
         }
-        .time-container {
+        .update-time {
             position: absolute;
             top: 1em;
             right: 1em;
             font-size: 1.2em;
-            color: #4CAF50;
-        }
-        .update-time {
-            font-size: 1em;
             color: #555;
         }
         @media (max-width: 600px) {
             .container {
                 padding: 0.5em;
             }
-            .time-container {
+            .update-time {
                 position: static;
                 margin-top: 1em;
             }
@@ -86,11 +79,9 @@
 <body>
     <header>
         <h1>4B作业网</h1>
-        <div class="time-container" id="current-time"></div>
-        <div class="update-time" id="update-time">正在加载...</div>
     </header>
     <div class="container daily-homework">
-        <p>今日作业：（最后更新时间：<span id="update-time-header">正在加载...</span>）</p>
+        <div class="update-time" id="update-time">正在加载...</div>
         <section>
             <h3 class="subject">C:</h3>
             <ul>
@@ -126,19 +117,7 @@
         </p>
     </footer>
     <script>
-        function updateTime() {
-            const now = new Date();
-            const timeStr = now.toLocaleTimeString('zh-CN', {
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            document.getElementById('current-time').textContent = timeStr;
-        }
         document.addEventListener('DOMContentLoaded', function() {
-            updateTime();
-            setInterval(updateTime, 1000);
             fetch('https://api.github.com/repos/4bchat/hw.phi-song.top')
                 .then(response => response.json())
                 .then(data => {
@@ -152,12 +131,10 @@
                         hour12: false
                     });
                     document.getElementById('update-time').textContent = '最后更新时间：' + updateTimeStr;
-                    document.getElementById('update-time-header').textContent = updateTimeStr;
                 })
                 .catch(error => {
                     console.error('Error fetching repository data:', error);
                     document.getElementById('update-time').textContent = '无法加载更新时间';
-                    document.getElementById('update-time-header').textContent = '无法加载更新时间';
                 });
         });
     </script>
