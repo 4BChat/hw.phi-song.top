@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BV号播放视频</title>
+<script>
+function loadVideo() {
+    var bvInput = document.getElementById('bvInput').value;
+    var iframe = document.getElementById('bilibiliIframe');
+    iframe.src = "//player.bilibili.com/player.html?bvid=" + bvInput;
+}
+</script>
+</head>
+<body>
+
+<label for="bvInput">输入BV号:</label>
+<input type="text" id="bvInput" name="bvInput">
+<button onclick="loadVideo()">加载视频</button>
+
+<iframe id="bilibiliIframe" src="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+</body>
+</html>
